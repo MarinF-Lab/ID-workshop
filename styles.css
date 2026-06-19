@@ -135,9 +135,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex; align-items: center; justify-content: space-between;
   height: var(--nav-h);
 }
-.nav-logo img { height: 56px; width: auto; }
+.nav-logo img { height: 65px; width: auto; }
 .nav-links {
-  display: flex; align-items: center; gap: 28px;
+  display: flex; align-items: center; gap: 40px;
   font-size: .88rem; font-weight: 500;
 }
 .nav-links a:not(.btn-nav) { color: var(--text-muted); transition: color var(--transition); }
