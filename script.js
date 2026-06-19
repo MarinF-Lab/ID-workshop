@@ -1,5 +1,25 @@
 'use strict';
 
+// ── Theme (aplicar ANTES del primer render para evitar flash) ──
+(function applyTheme() {
+  const saved  = localStorage.getItem('idw-theme');
+  const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', saved || system);
+})();
+
+function toggleTheme() {
+  const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('idw-theme', next);
+}
+
+// Seguir el tema del sistema si el usuario no ha elegido manualmente
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (!localStorage.getItem('idw-theme')) {
+    document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+  }
+});
+
 // ── Section order ──
 const SECTIONS = ['inicio', 'servicios', 'productos', 'nosotros', 'contacto'];
 let currentSection = 'inicio';
@@ -93,6 +113,9 @@ function bindNav() {
 document.getElementById('navBurger').addEventListener('click', () => {
   document.getElementById('navLinks').classList.toggle('open');
 });
+
+// ── Theme toggle button ──
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
 // ── Browser back/forward ──
 window.addEventListener('popstate', e => {

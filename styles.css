@@ -15,8 +15,32 @@
   --nav-h:      84px;
   --radius:     12px;
   --radius-lg:  20px;
-  --shadow:     0 4px 24px rgba(0,0,0,.45);
-  --transition: .25s ease;
+  --shadow:        0 4px 24px rgba(0,0,0,.45);
+  --transition:    .25s ease;
+  /* theme-aware extras */
+  --bg-nav:        rgba(13,17,23,.88);
+  --bg-glass:      rgba(22,27,34,.92);
+  --bg-mobile-nav: rgba(13,17,23,.97);
+  --grid-line:     rgba(74,158,202,.055);
+  --glow-blue:     rgba(30,58,95,.22);
+  --glow-pink:     rgba(232,62,108,.05);
+}
+
+[data-theme="light"] {
+  --bg:            #f2f5f9;
+  --bg-card:       #ffffff;
+  --bg-nav:        rgba(242,245,249,.93);
+  --bg-glass:      rgba(255,255,255,.93);
+  --bg-mobile-nav: rgba(242,245,249,.98);
+  --border:        #dde3ec;
+  --globe-blue:    #2a7ab0;
+  --text:          #1a2638;
+  --text-muted:    #566779;
+  --text-dim:      #b8c4ce;
+  --shadow:        0 4px 24px rgba(0,0,0,.10);
+  --grid-line:     rgba(42,122,176,.07);
+  --glow-blue:     rgba(74,158,202,.08);
+  --glow-pink:     rgba(232,62,108,.04);
 }
 
 html { scroll-behavior: auto; }
@@ -41,8 +65,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(74,158,202,.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(74,158,202,.055) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 .global-grid-bg::after {
@@ -50,8 +74,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 75% 45%, rgba(30,58,95,.22), transparent),
-    radial-gradient(ellipse 50% 70% at 10% 60%, rgba(232,62,108,.05), transparent);
+    radial-gradient(ellipse 70% 60% at 75% 45%, var(--glow-blue), transparent),
+    radial-gradient(ellipse 50% 70% at 10% 60%, var(--glow-pink), transparent);
 }
 
 /* ── UTILITIES ── */
@@ -102,7 +126,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .navbar {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(13,17,23,.88);
+  background: var(--bg-nav);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
@@ -133,6 +157,38 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 8px 20px; border-radius: 8px; font-weight: 600;
 }
 .btn-nav:hover { opacity: .85; }
+/* ── THEME TOGGLE ── */
+.theme-toggle {
+  width: 38px; height: 38px; flex-shrink: 0;
+  border-radius: 9px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle svg { width: 17px; height: 17px; pointer-events: none; }
+/* dark mode → show sun to switch to light */
+[data-theme="dark"]  .icon-moon { display: none; }
+[data-theme="dark"]  .icon-sun  { display: block; }
+/* light mode → show moon to switch to dark */
+[data-theme="light"] .icon-sun  { display: none; }
+[data-theme="light"] .icon-moon { display: block; }
+
+/* Light-mode specific tweaks */
+[data-theme="light"] .contact-footer-brand img,
+[data-theme="light"] .nav-logo img { filter: none; }
+[data-theme="light"] .service-card.featured {
+  background: linear-gradient(135deg, rgba(232,62,108,.05), rgba(181,33,92,.02));
+}
+[data-theme="light"] .hero-badge {
+  background: rgba(232,62,108,.07);
+}
+[data-theme="light"] .product-custom {
+  background: linear-gradient(135deg, rgba(232,62,108,.05), rgba(74,158,202,.05));
+}
+
 .nav-burger {
   display: none; flex-direction: column; gap: 5px; padding: 4px;
 }
@@ -275,7 +331,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .floating-card {
   position: absolute;
   display: flex; align-items: center; gap: 8px;
-  background: rgba(22,27,34,.9);
+  background: var(--bg-glass);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 16px;
@@ -646,7 +702,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .nav-links {
     display: none; flex-direction: column; gap: 0;
     position: absolute; top: var(--nav-h); left: 0; right: 0;
-    background: rgba(13,17,23,.97); backdrop-filter: blur(12px);
+    background: var(--bg-mobile-nav); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border); padding: 12px 0;
   }
   .nav-links.open { display: flex; }
