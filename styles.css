@@ -12,7 +12,7 @@
   --text-muted: #8b949e;
   --text-dim:   #3d4b5c;
   --success:    #2ecc71;
-  --nav-h:      92px;
+  --nav-h:      120px;
   --radius:     12px;
   --radius-lg:  20px;
   --shadow:        0 4px 24px rgba(0,0,0,.45);
@@ -135,7 +135,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex; align-items: center; justify-content: space-between;
   height: var(--nav-h);
 }
-.nav-logo img { height: 70px; width: auto; }
+.nav-logo img { height: 105px; width: auto; }
 .nav-links {
   display: flex; align-items: center; gap: 40px;
   font-size: .88rem; font-weight: 500;
@@ -692,10 +692,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 @media (max-width: 768px) {
   body { overflow: hidden; }
-  .hero-section { flex-direction: column; text-align: center; padding: 24px 24px; gap: 28px; }
+  .hero-section { flex-direction: column; text-align: center; padding: 24px 24px; gap: 20px; }
   .hero-cta { justify-content: center; }
   .hero-stats { justify-content: center; }
-  .hero-visual { display: none; }
+  /* En móvil: ocultar logo de navbar, mostrar globo del hero */
+  .nav-logo { display: none; }
+  .hero-visual {
+    display: flex; justify-content: center;
+    max-width: 160px; margin: 0 auto;
+    order: -1; /* aparece arriba del texto */
+  }
+  .hero-logo-img { width: 150px; height: 150px; }
+  .floating-card { display: none; }
+  .section-next-btn { bottom: 10px; }
   .products-grid { grid-template-columns: 1fr; }
   .side-dots { right: 12px; }
   .section-inner { padding: 0 20px; }
