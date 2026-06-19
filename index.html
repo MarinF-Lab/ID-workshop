@@ -12,18 +12,21 @@
 </head>
 <body>
 
+  <!-- Fondo de cuadrícula global (fijo) -->
+  <div class="global-grid-bg" aria-hidden="true"></div>
+
   <!-- ── NAVBAR ── -->
   <header class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#inicio" class="nav-logo">
+      <a href="#inicio" class="nav-logo" data-target="inicio">
         <img src="assets/images/logo-horizontal.png" alt="ID Workshop Software Studio" />
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#productos">Productos</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto" class="btn-nav">Contáctanos</a>
+        <a href="#inicio"    data-target="inicio">Inicio</a>
+        <a href="#servicios" data-target="servicios">Servicios</a>
+        <a href="#productos" data-target="productos">Productos</a>
+        <a href="#nosotros"  data-target="nosotros">Nosotros</a>
+        <a href="#contacto"  data-target="contacto" class="btn-nav">Contáctanos</a>
       </nav>
       <button class="nav-burger" id="navBurger" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -31,9 +34,17 @@
     </div>
   </header>
 
-  <!-- ── HERO ── -->
-  <section class="hero" id="inicio">
-    <div class="hero-grid-bg"></div>
+  <!-- ── PUNTOS LATERALES DE NAVEGACIÓN ── -->
+  <nav class="side-dots" id="sideDots" aria-label="Secciones">
+    <button class="dot" data-target="inicio"    title="Inicio"></button>
+    <button class="dot" data-target="servicios" title="Servicios"></button>
+    <button class="dot" data-target="productos" title="Productos"></button>
+    <button class="dot" data-target="nosotros"  title="Nosotros"></button>
+    <button class="dot" data-target="contacto"  title="Contacto"></button>
+  </nav>
+
+  <!-- ── SECCIÓN 1: INICIO ── -->
+  <section class="page-section hero-section" id="inicio">
     <div class="hero-content">
       <div class="hero-badge">
         <span class="terminal-prompt">&gt;_</span> Software Studio
@@ -47,8 +58,8 @@
         Tecnología que impulsa tu negocio.
       </p>
       <div class="hero-cta">
-        <a href="#productos" class="btn btn-primary">Ver productos</a>
-        <a href="#contacto" class="btn btn-outline">Hablemos</a>
+        <button class="btn btn-primary" data-target="productos">Ver productos</button>
+        <button class="btn btn-outline" data-target="contacto">Hablemos</button>
       </div>
       <div class="hero-stats">
         <div class="stat"><span class="stat-num" data-target="30">0</span>+<p>Proyectos</p></div>
@@ -62,23 +73,17 @@
       <div class="globe-container">
         <img src="assets/images/logo-icon.png" alt="ID Workshop" class="hero-logo-img" />
       </div>
-      <div class="floating-card card-f1">
-        <span class="fc-icon">⚡</span>
-        <span>Alto rendimiento</span>
-      </div>
-      <div class="floating-card card-f2">
-        <span class="fc-icon">🔒</span>
-        <span>Seguro</span>
-      </div>
-      <div class="floating-card card-f3">
-        <span class="fc-icon">🌐</span>
-        <span>Multiplataforma</span>
-      </div>
+      <div class="floating-card card-f1"><span class="fc-icon">⚡</span><span>Alto rendimiento</span></div>
+      <div class="floating-card card-f2"><span class="fc-icon">🔒</span><span>Seguro</span></div>
+      <div class="floating-card card-f3"><span class="fc-icon">🌐</span><span>Multiplataforma</span></div>
     </div>
+    <button class="section-next-btn" data-target="servicios" aria-label="Siguiente sección">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
   </section>
 
-  <!-- ── SERVICIOS ── -->
-  <section class="services" id="servicios">
+  <!-- ── SECCIÓN 2: SERVICIOS ── -->
+  <section class="page-section services-section" id="servicios">
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Lo que hacemos</span>
@@ -86,74 +91,53 @@
         <p>De la idea al producto final. Nos encargamos de todo el ciclo de vida de tu software.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card" data-aos>
+        <div class="service-card animate-item">
           <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M14 20l-6 4 6 4M34 20l6 4-6 4M22 30l4-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M14 20l-6 4 6 4M34 20l6 4-6 4M22 30l4-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
           </div>
           <h3>Desarrollo de Software</h3>
           <p>Aplicaciones de escritorio, sistemas de gestión, ERPs, CRMs y herramientas a medida para automatizar y escalar tu negocio.</p>
-          <ul class="service-tags">
-            <li>Desktop</li><li>Web App</li><li>API REST</li><li>Base de datos</li>
-          </ul>
+          <ul class="service-tags"><li>Desktop</li><li>Web App</li><li>API REST</li><li>Base de datos</li></ul>
         </div>
-
-        <div class="service-card featured" data-aos>
+        <div class="service-card featured animate-item" style="--delay:.1s">
           <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M16 40h16M24 36v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M12 20h8M12 26h12M28 20h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/><path d="M16 40h16M24 36v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M12 20h8M12 26h12M28 20h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
           <h3>Páginas Web</h3>
           <p>Desde landing pages hasta e-commerce completos. Diseño moderno, responsive y optimizado para SEO y velocidad de carga.</p>
-          <ul class="service-tags">
-            <li>Landing</li><li>E-commerce</li><li>SEO</li><li>Responsive</li>
-          </ul>
+          <ul class="service-tags"><li>Landing</li><li>E-commerce</li><li>SEO</li><li>Responsive</li></ul>
           <span class="featured-badge">Más popular</span>
         </div>
-
-        <div class="service-card" data-aos>
+        <div class="service-card animate-item" style="--delay:.2s">
           <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4z" stroke="currentColor" stroke-width="2.5"/>
-              <path d="M24 16v8l5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M12 24h4M32 24h4M24 12v4M24 32v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4z" stroke="currentColor" stroke-width="2.5"/><path d="M24 16v8l5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M12 24h4M32 24h4M24 12v4M24 32v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
           <h3>Mantenimiento</h3>
           <p>Soporte continuo, actualizaciones de seguridad, corrección de bugs y monitoreo de tus sistemas para garantizar su disponibilidad.</p>
-          <ul class="service-tags">
-            <li>Soporte 24/7</li><li>Updates</li><li>Seguridad</li><li>Monitoreo</li>
-          </ul>
+          <ul class="service-tags"><li>Soporte 24/7</li><li>Updates</li><li>Seguridad</li><li>Monitoreo</li></ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── PRODUCTOS (LOBBY) ── -->
-  <section class="products" id="productos">
+  <!-- ── SECCIÓN 3: PRODUCTOS ── -->
+  <section class="page-section products-section" id="productos">
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Catálogo</span>
         <h2>Nuestros <span class="gradient-text">Productos</span></h2>
         <p>Software listo para usar. Licencias, suscripciones y personalización disponibles.</p>
       </div>
-
       <div class="products-filter">
         <button class="filter-btn active" data-filter="all">Todos</button>
         <button class="filter-btn" data-filter="desktop">Desktop</button>
         <button class="filter-btn" data-filter="web">Web</button>
         <button class="filter-btn" data-filter="gestion">Gestión</button>
       </div>
-
       <div class="products-grid" id="productsGrid">
 
-        <div class="product-card" data-category="gestion" data-aos>
-          <div class="product-header" style="--card-color: #e83e6c;">
+        <div class="product-card animate-item" data-category="gestion">
+          <div class="product-header" style="--card-color:#e83e6c">
             <div class="product-icon-wrap">
               <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="3" stroke="white" stroke-width="2"/><path d="M10 18h20M10 23h12" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="30" cy="28" r="7" fill="#e83e6c" stroke="white" stroke-width="1.5"/><path d="M27.5 28h5M30 25.5v5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
@@ -162,24 +146,16 @@
           <div class="product-body">
             <h3>InvoiceFlow</h3>
             <p>Sistema de facturación y cotizaciones con generación de PDF, control de clientes y reportes automáticos.</p>
-            <div class="product-meta">
-              <span class="product-tag">Facturación</span>
-              <span class="product-tag">PDF</span>
-              <span class="product-tag">CRM</span>
-            </div>
+            <div class="product-meta"><span class="product-tag">Facturación</span><span class="product-tag">PDF</span><span class="product-tag">CRM</span></div>
           </div>
           <div class="product-footer">
-            <div class="product-price">
-              <span class="price-label">Desde</span>
-              <span class="price-amount">$49.990</span>
-              <span class="price-period">/mes</span>
-            </div>
+            <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$49.990</span><span class="price-period">/mes</span></div>
             <button class="btn-product" onclick="openModal('InvoiceFlow')">Ver más</button>
           </div>
         </div>
 
-        <div class="product-card" data-category="desktop web" data-aos>
-          <div class="product-header" style="--card-color: #4a6fa5;">
+        <div class="product-card animate-item" data-category="desktop web" style="--delay:.05s">
+          <div class="product-header" style="--card-color:#4a6fa5">
             <div class="product-icon-wrap">
               <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="6" width="32" height="28" rx="3" stroke="white" stroke-width="2"/><path d="M4 14h32" stroke="white" stroke-width="2"/><circle cx="10" cy="10" r="1.5" fill="white"/><circle cx="16" cy="10" r="1.5" fill="white"/><circle cx="22" cy="10" r="1.5" fill="white"/><path d="M10 22l4 4 10-8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
@@ -188,24 +164,16 @@
           <div class="product-body">
             <h3>TaskBoard Pro</h3>
             <p>Gestor de tareas y proyectos tipo Kanban con seguimiento de tiempos, notificaciones y reportes de equipo.</p>
-            <div class="product-meta">
-              <span class="product-tag">Kanban</span>
-              <span class="product-tag">Equipo</span>
-              <span class="product-tag">Reportes</span>
-            </div>
+            <div class="product-meta"><span class="product-tag">Kanban</span><span class="product-tag">Equipo</span><span class="product-tag">Reportes</span></div>
           </div>
           <div class="product-footer">
-            <div class="product-price">
-              <span class="price-label">Desde</span>
-              <span class="price-amount">$29.990</span>
-              <span class="price-period">/mes</span>
-            </div>
+            <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$29.990</span><span class="price-period">/mes</span></div>
             <button class="btn-product" onclick="openModal('TaskBoard Pro')">Ver más</button>
           </div>
         </div>
 
-        <div class="product-card" data-category="web" data-aos>
-          <div class="product-header" style="--card-color: #2ecc71;">
+        <div class="product-card animate-item" data-category="web" style="--delay:.1s">
+          <div class="product-header" style="--card-color:#2ecc71">
             <div class="product-icon-wrap">
               <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="white" stroke-width="2"/><path d="M20 6c0 0-6 5-6 14s6 14 6 14M20 6c0 0 6 5 6 14s-6 14-6 14M6 20h28" stroke="white" stroke-width="2"/><path d="M8 14h24M8 26h24" stroke="white" stroke-width="1.5"/></svg>
             </div>
@@ -214,24 +182,16 @@
           <div class="product-body">
             <h3>WebPresence</h3>
             <p>Plataforma para crear y gestionar tu presencia web corporativa con editor visual, blog y analítica integrada.</p>
-            <div class="product-meta">
-              <span class="product-tag">CMS</span>
-              <span class="product-tag">Blog</span>
-              <span class="product-tag">Analytics</span>
-            </div>
+            <div class="product-meta"><span class="product-tag">CMS</span><span class="product-tag">Blog</span><span class="product-tag">Analytics</span></div>
           </div>
           <div class="product-footer">
-            <div class="product-price">
-              <span class="price-label">Desde</span>
-              <span class="price-amount">$39.990</span>
-              <span class="price-period">/mes</span>
-            </div>
+            <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$39.990</span><span class="price-period">/mes</span></div>
             <button class="btn-product" onclick="openModal('WebPresence')">Ver más</button>
           </div>
         </div>
 
-        <div class="product-card" data-category="desktop gestion" data-aos>
-          <div class="product-header" style="--card-color: #f39c12;">
+        <div class="product-card animate-item" data-category="desktop gestion" style="--delay:.15s">
+          <div class="product-header" style="--card-color:#f39c12">
             <div class="product-icon-wrap">
               <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="3" stroke="white" stroke-width="2"/><path d="M12 20h16M12 14h10M12 26h8" stroke="white" stroke-width="2" stroke-linecap="round"/><rect x="24" y="22" width="10" height="8" rx="1.5" fill="#f39c12" stroke="white" stroke-width="1.5"/></svg>
             </div>
@@ -240,24 +200,16 @@
           <div class="product-body">
             <h3>StockMaster</h3>
             <p>Control de inventario y bodega con alertas de stock mínimo, trazabilidad de productos y reportes en tiempo real.</p>
-            <div class="product-meta">
-              <span class="product-tag">Inventario</span>
-              <span class="product-tag">Alertas</span>
-              <span class="product-tag">Reportes</span>
-            </div>
+            <div class="product-meta"><span class="product-tag">Inventario</span><span class="product-tag">Alertas</span><span class="product-tag">Reportes</span></div>
           </div>
           <div class="product-footer">
-            <div class="product-price">
-              <span class="price-label">Desde</span>
-              <span class="price-amount">$59.990</span>
-              <span class="price-period">/mes</span>
-            </div>
+            <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$59.990</span><span class="price-period">/mes</span></div>
             <button class="btn-product" onclick="openModal('StockMaster')">Ver más</button>
           </div>
         </div>
 
-        <div class="product-card" data-category="web gestion" data-aos>
-          <div class="product-header" style="--card-color: #9b59b6;">
+        <div class="product-card animate-item" data-category="web gestion" style="--delay:.2s">
+          <div class="product-header" style="--card-color:#9b59b6">
             <div class="product-icon-wrap">
               <svg viewBox="0 0 40 40" fill="none"><path d="M20 4l14 8v16l-14 8L6 28V12L20 4z" stroke="white" stroke-width="2"/><path d="M20 4v28M6 12l14 8 14-8" stroke="white" stroke-width="1.5"/></svg>
             </div>
@@ -266,29 +218,22 @@
           <div class="product-body">
             <h3>HRConnect</h3>
             <p>Sistema de RRHH para gestión de empleados, vacaciones, asistencia y liquidaciones de sueldo simplificadas.</p>
-            <div class="product-meta">
-              <span class="product-tag">RRHH</span>
-              <span class="product-tag">Asistencia</span>
-              <span class="product-tag">Sueldos</span>
-            </div>
+            <div class="product-meta"><span class="product-tag">RRHH</span><span class="product-tag">Asistencia</span><span class="product-tag">Sueldos</span></div>
           </div>
           <div class="product-footer">
-            <div class="product-price">
-              <span class="price-label">Próximamente</span>
-              <span class="price-amount">—</span>
-            </div>
+            <div class="product-price"><span class="price-label">Próximamente</span><span class="price-amount">—</span></div>
             <button class="btn-product btn-coming" disabled>En desarrollo</button>
           </div>
         </div>
 
-        <div class="product-card product-custom" data-category="all" data-aos>
+        <div class="product-card product-custom animate-item" data-category="all" style="--delay:.25s">
           <div class="product-custom-inner">
             <div class="custom-icon">
               <svg viewBox="0 0 48 48" fill="none"><path d="M24 4l4 8h8l-6.5 5 2.5 8L24 20l-8 5 2.5-8L12 12h8L24 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 32h28M10 38h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
             <h3>¿Necesitas algo específico?</h3>
-            <p>Desarrollamos software completamente a medida según tus requerimientos y procesos de negocio.</p>
-            <a href="#contacto" class="btn btn-primary">Solicitar cotización</a>
+            <p>Desarrollamos software completamente a medida según tus requerimientos.</p>
+            <button class="btn btn-primary" data-target="contacto">Solicitar cotización</button>
           </div>
         </div>
 
@@ -296,46 +241,27 @@
     </div>
   </section>
 
-  <!-- ── NOSOTROS ── -->
-  <section class="about" id="nosotros">
+  <!-- ── SECCIÓN 4: NOSOTROS ── -->
+  <section class="page-section about-section" id="nosotros">
     <div class="section-inner about-inner">
-      <div class="about-text" data-aos>
+      <div class="about-text animate-item">
         <span class="section-tag">Quiénes somos</span>
         <h2>Construimos <span class="gradient-text">tecnología</span> con propósito</h2>
         <p>ID Workshop es un estudio de software dedicado a crear soluciones digitales que realmente resuelven problemas. Combinamos diseño, ingeniería y estrategia para entregar productos que duran.</p>
         <p>Ya sea que necesites automatizar un proceso, lanzar tu negocio en línea, o mantener y escalar una plataforma existente — estamos aquí.</p>
         <div class="about-features">
-          <div class="about-feature">
-            <span class="af-icon">✓</span>
-            <div>
-              <strong>Entrega puntual</strong>
-              <span>Cumplimos plazos con metodologías ágiles</span>
-            </div>
-          </div>
-          <div class="about-feature">
-            <span class="af-icon">✓</span>
-            <div>
-              <strong>Código de calidad</strong>
-              <span>Pruebas, documentación y buenas prácticas</span>
-            </div>
-          </div>
-          <div class="about-feature">
-            <span class="af-icon">✓</span>
-            <div>
-              <strong>Soporte post-entrega</strong>
-              <span>No te dejamos solo después del lanzamiento</span>
-            </div>
-          </div>
-          <div class="about-feature">
-            <span class="af-icon">✓</span>
-            <div>
-              <strong>Precios transparentes</strong>
-              <span>Sin costos ocultos ni letra chica</span>
-            </div>
-          </div>
+          <div class="about-feature"><span class="af-icon">✓</span><div><strong>Entrega puntual</strong><span>Cumplimos plazos con metodologías ágiles</span></div></div>
+          <div class="about-feature"><span class="af-icon">✓</span><div><strong>Código de calidad</strong><span>Pruebas, documentación y buenas prácticas</span></div></div>
+          <div class="about-feature"><span class="af-icon">✓</span><div><strong>Soporte post-entrega</strong><span>No te dejamos solo después del lanzamiento</span></div></div>
+          <div class="about-feature"><span class="af-icon">✓</span><div><strong>Precios transparentes</strong><span>Sin costos ocultos ni letra chica</span></div></div>
+        </div>
+        <div class="tech-pills">
+          <span>Python</span><span>JavaScript</span><span>React</span><span>Node.js</span>
+          <span>PostgreSQL</span><span>Docker</span><span>PHP</span><span>Vue.js</span>
+          <span>MySQL</span><span>Linux</span><span>REST APIs</span><span>Git</span>
         </div>
       </div>
-      <div class="about-visual" data-aos>
+      <div class="about-visual animate-item" style="--delay:.15s">
         <div class="terminal-window">
           <div class="terminal-bar">
             <span class="tb-dot dot-red"></span>
@@ -359,41 +285,30 @@
     </div>
   </section>
 
-  <!-- ── TECNOLOGÍAS ── -->
-  <section class="tech-strip">
-    <div class="tech-inner">
-      <p class="tech-label">Tecnologías que dominamos</p>
-      <div class="tech-logos">
-        <span>Python</span><span>JavaScript</span><span>React</span><span>Node.js</span>
-        <span>PostgreSQL</span><span>Docker</span><span>PHP</span><span>Vue.js</span>
-        <span>MySQL</span><span>Linux</span><span>REST APIs</span><span>Git</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CONTACTO ── -->
-  <section class="contact" id="contacto">
+  <!-- ── SECCIÓN 5: CONTACTO ── -->
+  <section class="page-section contact-section" id="contacto">
     <div class="section-inner contact-inner">
-      <div class="contact-info" data-aos>
+      <div class="contact-info animate-item">
         <span class="section-tag">Contacto</span>
         <h2>¿Listo para <span class="gradient-text">empezar</span>?</h2>
         <p>Cuéntanos tu proyecto y te responderemos en menos de 24 horas con una propuesta inicial sin costo.</p>
         <div class="contact-details">
           <a href="mailto:contacto@idworkshop.cl" class="contact-item">
-            <span class="ci-icon">✉</span>
-            <span>contacto@idworkshop.cl</span>
+            <span class="ci-icon">✉</span><span>contacto@idworkshop.cl</span>
           </a>
           <div class="contact-item">
-            <span class="ci-icon">📍</span>
-            <span>Chile — Atención remota a todo el país</span>
+            <span class="ci-icon">📍</span><span>Chile — Atención remota a todo el país</span>
           </div>
           <div class="contact-item">
-            <span class="ci-icon">⏱</span>
-            <span>Lun–Vie · 9:00 a 18:00 hrs</span>
+            <span class="ci-icon">⏱</span><span>Lun–Vie · 9:00 a 18:00 hrs</span>
           </div>
         </div>
+        <div class="contact-footer-brand">
+          <img src="assets/images/logo-horizontal.png" alt="ID Workshop" />
+          <p>© 2025 ID Workshop Software Studio</p>
+        </div>
       </div>
-      <form class="contact-form" id="contactForm" data-aos>
+      <form class="contact-form animate-item" id="contactForm" style="--delay:.15s">
         <div class="form-row">
           <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -430,46 +345,13 @@
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="assets/images/logo-horizontal.png" alt="ID Workshop" />
-        <p>Creamos, vendemos y mantenemos software y páginas web a medida.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Servicios</h4>
-          <a href="#servicios">Desarrollo de Software</a>
-          <a href="#servicios">Páginas Web</a>
-          <a href="#servicios">Mantenimiento</a>
-        </div>
-        <div class="footer-col">
-          <h4>Productos</h4>
-          <a href="#productos">InvoiceFlow</a>
-          <a href="#productos">TaskBoard Pro</a>
-          <a href="#productos">WebPresence</a>
-          <a href="#productos">StockMaster</a>
-        </div>
-        <div class="footer-col">
-          <h4>Empresa</h4>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#contacto">Contacto</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 ID Workshop Software Studio. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
   <!-- ── MODAL ── -->
   <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
     <div class="modal" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">✕</button>
       <h2 id="modalTitle"></h2>
       <p id="modalBody"></p>
-      <a href="#contacto" class="btn btn-primary" onclick="closeModal()">Solicitar información</a>
+      <button class="btn btn-primary" onclick="closeModal(); navigateTo('contacto')">Solicitar información</button>
     </div>
   </div>
 
