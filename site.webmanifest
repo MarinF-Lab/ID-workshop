@@ -1,0 +1,11 @@
+{
+  "name": "ID Workshop",
+  "short_name": "ID Workshop",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#121F30",
+  "background_color": "#121F30",
+  "display": "standalone"
+}
