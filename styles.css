@@ -192,6 +192,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 [data-theme="light"] .logo-dark  { display: none; }
 [data-theme="light"] .logo-light { display: block; }
 
+/* Light-mode isotipo: boost saturation so dark-navy elements feel richer, not flat */
+[data-theme="light"] .logo-light {
+  filter: brightness(1.08) saturate(1.5) contrast(1.05);
+}
+
 /* Light-mode specific tweaks */
 [data-theme="light"] .service-card.featured {
   background: linear-gradient(135deg, rgba(232,62,108,.05), rgba(181,33,92,.02));
