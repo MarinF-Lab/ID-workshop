@@ -139,7 +139,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex; align-items: center; justify-content: space-between;
   height: var(--nav-h);
 }
-.nav-logo img { height: 105px; width: auto; }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-isotipo { height: 76px; width: auto; }
+.nav-wordmark { display: flex; flex-direction: column; line-height: 1.15; }
+.wm-name { font-size: 1.4rem; font-weight: 800; letter-spacing: -.01em; }
+.wm-id { color: var(--text); }
+.wm-workshop { color: var(--accent); }
+.wm-sub { font-size: .58rem; letter-spacing: .16em; color: var(--text-muted); text-transform: uppercase; margin-top: 3px; }
 .nav-links {
   display: flex; align-items: center; gap: 40px;
   font-size: .88rem; font-weight: 500;
@@ -619,7 +625,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-top: 24px;
   border-top: 1px solid var(--border);
 }
-.contact-footer-brand img { height: 44px; margin-bottom: 8px; filter: brightness(.8); }
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.footer-isotipo { height: 32px; width: auto; filter: brightness(.8); }
 .contact-footer-brand p { font-size: .78rem; color: var(--text-dim); }
 
 .contact-form {
