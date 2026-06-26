@@ -167,24 +167,33 @@ function animateTerminal() {
   });
 }
 
+// ── Products filter ──
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.product-card[data-category]').forEach(card => {
+      const cats = card.dataset.category || '';
+      card.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
+    });
+  });
+});
+
 // ── Modal ──
 const modalData = {
-  'InvoiceFlow':   { tags: ['Facturación', 'PDF', 'CRM', 'Gestión'], desc: 'Sistema completo de facturación electrónica y cotizaciones. Genera PDFs profesionales, gestiona tu cartera de clientes, controla cuentas por cobrar y obtén reportes financieros automáticos. Compatible con SII Chile.' },
-  'TaskBoard Pro': { tags: ['Kanban', 'Equipo', 'Reportes', 'Desktop', 'Web'], desc: 'Gestión de proyectos y equipos con tableros Kanban, seguimiento de tiempos, asignación de tareas, notificaciones por correo y dashboard de productividad. Ideal para equipos de 1 a 50 personas.' },
-  'WebPresence':   { tags: ['CMS', 'Blog', 'Analytics', 'SEO', 'Web'], desc: 'Plataforma todo-en-uno para tu presencia digital corporativa. Editor drag & drop, blog integrado, formularios de contacto, Google Analytics, optimización SEO y hosting incluido.' },
-  'StockMaster':   { tags: ['Inventario', 'Alertas', 'Reportes', 'Desktop'], desc: 'Control de inventario en tiempo real con lectura de códigos QR/barras, alertas de stock mínimo, trazabilidad por lote, múltiples bodegas y reportes de rotación de productos.' },
-  'HRConnect':     { tags: ['RRHH', 'Asistencia', 'Sueldos', 'Web'], desc: 'Sistema de RRHH para gestión de empleados, vacaciones, asistencia y liquidaciones de sueldo simplificadas. Actualmente en desarrollo.' },
+  'InvoiceFlow':   'Sistema completo de facturación electrónica y cotizaciones. Genera PDFs profesionales, gestiona tu cartera de clientes, controla cuentas por cobrar y obtén reportes financieros automáticos. Compatible con SII Chile.',
+  'TaskBoard Pro': 'Gestión de proyectos y equipos con tableros Kanban, seguimiento de tiempos, asignación de tareas, notificaciones por correo y dashboard de productividad. Ideal para equipos de 1 a 50 personas.',
+  'WebPresence':   'Plataforma todo-en-uno para tu presencia digital corporativa. Editor drag & drop, blog integrado, formularios de contacto, Google Analytics, optimización SEO y hosting incluido.',
+  'StockMaster':   'Control de inventario en tiempo real con lectura de códigos QR/barras, alertas de stock mínimo, trazabilidad por lote, múltiples bodegas y reportes de rotación de productos.',
 };
 const overlay    = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalBody  = document.getElementById('modalBody');
-const modalTags  = document.getElementById('modalTags');
 
 function openModal(name) {
-  const data = modalData[name] || {};
   modalTitle.textContent = name;
-  modalBody.textContent  = data.desc || 'Contáctanos para más información.';
-  modalTags.innerHTML    = (data.tags || []).map(t => `<span class="product-tag">${t}</span>`).join('');
+  modalBody.textContent  = modalData[name] || 'Contáctanos para más información.';
   overlay.classList.add('open');
 }
 function closeModal() {

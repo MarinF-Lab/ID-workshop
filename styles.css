@@ -438,10 +438,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .products-section { padding: 32px 0; }
 .products-section .section-inner { display: flex; flex-direction: column; }
 
+.products-filter {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 32px;
+}
+.filter-btn {
+  padding: 7px 18px; border-radius: 20px;
+  border: 1px solid var(--border);
+  font-size: .82rem; font-weight: 500;
+  color: var(--text-muted); background: transparent;
+  transition: var(--transition);
+}
+.filter-btn:hover  { border-color: var(--globe-blue); color: var(--text); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 20px;
 }
 .product-card {
   background: var(--bg-card);
@@ -456,38 +470,39 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .product-header {
   background: linear-gradient(135deg, var(--card-color, #e83e6c), color-mix(in srgb, var(--card-color,#e83e6c) 55%, #000));
-  padding: 14px 16px;
+  padding: 22px;
   display: flex; align-items: flex-start; justify-content: space-between;
 }
 .product-icon-wrap {
-  width: 36px; height: 36px;
+  width: 44px; height: 44px;
   background: rgba(255,255,255,.15);
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
 }
-.product-icon-wrap svg { width: 22px; height: 22px; }
+.product-icon-wrap svg { width: 26px; height: 26px; }
 .product-version {
-  font-family: 'JetBrains Mono', monospace; font-size: .62rem; font-weight: 600;
+  font-family: 'JetBrains Mono', monospace; font-size: .68rem; font-weight: 600;
   background: rgba(255,255,255,.18); color: #fff;
-  padding: 2px 7px; border-radius: 20px;
+  padding: 2px 8px; border-radius: 20px;
 }
-.product-body { padding: 12px 14px; flex: 1; }
-.product-body h3 { font-size: .95rem; font-weight: 700; margin-bottom: 5px; }
-.product-body p  { color: var(--text-muted); font-size: .8rem; line-height: 1.5; margin-bottom: 0; }
+.product-body { padding: 18px 20px; flex: 1; }
+.product-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+.product-body p  { color: var(--text-muted); font-size: .84rem; line-height: 1.55; margin-bottom: 12px; }
+.product-meta { display: flex; flex-wrap: wrap; gap: 5px; }
 .product-tag {
   font-size: .68rem; font-weight: 600; color: var(--text-muted);
   background: var(--bg); border: 1px solid var(--border);
   padding: 2px 8px; border-radius: 20px;
 }
 .product-footer {
-  padding: 10px 14px;
+  padding: 14px 20px;
   border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
 .product-price { display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap; }
-.price-label  { font-size: .68rem; color: var(--text-muted); }
-.price-amount { font-size: .92rem; font-weight: 700; color: var(--text); }
-.price-period { font-size: .65rem; color: var(--text-muted); }
+.price-label  { font-size: .7rem; color: var(--text-muted); }
+.price-amount { font-size: 1rem; font-weight: 700; color: var(--text); }
+.price-period { font-size: .68rem; color: var(--text-muted); }
 .btn-product {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: #fff; padding: 7px 16px;
@@ -502,12 +517,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: 1.5px dashed rgba(74,158,202,.28);
   align-items: center; justify-content: center;
 }
-.product-custom-inner { padding: 20px 16px; text-align: center; }
+.product-custom-inner { padding: 28px 22px; text-align: center; }
 .custom-icon {
-  width: 44px; height: 44px;
+  width: 56px; height: 56px;
   background: rgba(232,62,108,.1); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 12px; color: var(--accent);
+  margin: 0 auto 16px; color: var(--accent);
 }
 .custom-icon svg { width: 28px; height: 28px; }
 .product-custom h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
@@ -657,10 +672,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .form-success.visible { display: block; }
 
 /* ── MODAL ── */
-.modal-tags {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  margin: 10px 0 16px;
-}
 .modal-overlay {
   position: fixed; inset: 0; z-index: 200;
   background: rgba(0,0,0,.72);

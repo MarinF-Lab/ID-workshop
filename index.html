@@ -149,6 +149,12 @@
         <h2>Nuestros <span class="gradient-text">Productos</span></h2>
         <p>Software listo para usar. Licencias, suscripciones y personalización disponibles.</p>
       </div>
+      <div class="products-filter">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="desktop">Desktop</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="gestion">Gestión</button>
+      </div>
       <div class="products-grid" id="productsGrid">
 
         <div class="product-card animate-item" data-category="gestion">
@@ -161,6 +167,7 @@
           <div class="product-body">
             <h3>InvoiceFlow</h3>
             <p>Sistema de facturación y cotizaciones con generación de PDF, control de clientes y reportes automáticos.</p>
+            <div class="product-meta"><span class="product-tag">Facturación</span><span class="product-tag">PDF</span><span class="product-tag">CRM</span></div>
           </div>
           <div class="product-footer">
             <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$49.990</span><span class="price-period">/mes</span></div>
@@ -178,6 +185,7 @@
           <div class="product-body">
             <h3>TaskBoard Pro</h3>
             <p>Gestor de tareas y proyectos tipo Kanban con seguimiento de tiempos, notificaciones y reportes de equipo.</p>
+            <div class="product-meta"><span class="product-tag">Kanban</span><span class="product-tag">Equipo</span><span class="product-tag">Reportes</span></div>
           </div>
           <div class="product-footer">
             <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$29.990</span><span class="price-period">/mes</span></div>
@@ -195,6 +203,7 @@
           <div class="product-body">
             <h3>WebPresence</h3>
             <p>Plataforma para crear y gestionar tu presencia web corporativa con editor visual, blog y analítica integrada.</p>
+            <div class="product-meta"><span class="product-tag">CMS</span><span class="product-tag">Blog</span><span class="product-tag">Analytics</span></div>
           </div>
           <div class="product-footer">
             <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$39.990</span><span class="price-period">/mes</span></div>
@@ -212,6 +221,7 @@
           <div class="product-body">
             <h3>StockMaster</h3>
             <p>Control de inventario y bodega con alertas de stock mínimo, trazabilidad de productos y reportes en tiempo real.</p>
+            <div class="product-meta"><span class="product-tag">Inventario</span><span class="product-tag">Alertas</span><span class="product-tag">Reportes</span></div>
           </div>
           <div class="product-footer">
             <div class="product-price"><span class="price-label">Desde</span><span class="price-amount">$59.990</span><span class="price-period">/mes</span></div>
@@ -229,6 +239,7 @@
           <div class="product-body">
             <h3>HRConnect</h3>
             <p>Sistema de RRHH para gestión de empleados, vacaciones, asistencia y liquidaciones de sueldo simplificadas.</p>
+            <div class="product-meta"><span class="product-tag">RRHH</span><span class="product-tag">Asistencia</span><span class="product-tag">Sueldos</span></div>
           </div>
           <div class="product-footer">
             <div class="product-price"><span class="price-label">Próximamente</span><span class="price-amount">—</span></div>
@@ -367,7 +378,6 @@
     <div class="modal" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">✕</button>
       <h2 id="modalTitle"></h2>
-      <div class="modal-tags" id="modalTags"></div>
       <p id="modalBody"></p>
       <button class="btn btn-primary" onclick="closeModal(); navigateTo('contacto')">Solicitar información</button>
     </div>
